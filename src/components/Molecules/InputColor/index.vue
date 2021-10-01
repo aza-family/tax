@@ -3,6 +3,7 @@
     <label for="name" class="text-base leading-7 text-blueGray-500">{{
       label
     }}</label>
+
     <input
       :value="getOptions[type]"
       @input="onChanged('fontColor', $event)"
@@ -11,9 +12,14 @@
       name="color"
       placeholder="name"
       class="
+        w-10
+        h-10
+        focus:outline-none focus:shadow-outline
+        inline-flex
+        p-2
+        shadow
         w-full
         px-4
-        py-2
         mt-2
         mr-4
         text-base text-black
