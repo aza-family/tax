@@ -13,13 +13,13 @@
       :height="450"
       class="rounded-lg shadow-lg"
     >
-      이 브라우저는 HTML5의 canvas 요소를 지원하지 않습니다
     </canvas>
     <div class="mt-6">
       <button
         @click="downloadCanvas"
         class="
           w-100
+          h-12
           px-6
           py-2
           leading-5
