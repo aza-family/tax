@@ -6,6 +6,8 @@ const cm = "./src/components/Molecules";
 const co = "./src/components/Organisms";
 const ct = "./src/components/Templates";
 module.exports = {
+  publicPath: "./",
+  outputDir: "docs/",
   runtimeCompiler: true,
   css: {
     modules: true,
