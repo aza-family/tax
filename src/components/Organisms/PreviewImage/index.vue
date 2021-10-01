@@ -43,8 +43,8 @@
 import { mapGetters } from "vuex";
 //import { SET_CANVAS_DOM } from "@/store/Editor/mutations";
 import Vue from "vue";
+import images from "@/utils/images";
 export default Vue.extend({
-  name: "tile",
   methods: {
     downloadCanvas() {
       const url = (this as any).$refs.canvas.toDataURL("image/png");
@@ -64,11 +64,12 @@ export default Vue.extend({
     //this.$store.commit(SET_CANVAS_DOM, this.$refs.canvas);
   },
   computed: {
+    getImages() {
+      return images;
+    },
     ...mapGetters({
       getCanvasDom: "editor/getCanvasDom",
       getOptions: "editor/getOptions",
-      //getImageIndex: "editor/getOptions['imageIndex']",
-      getImages: "editor/getImages",
     }),
   },
 });
