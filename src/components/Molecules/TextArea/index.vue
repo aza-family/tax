@@ -9,7 +9,7 @@
         class="
           textarea-custom
           w-full
-          h-32
+          h-16
           px-4
           py-2
           mt-2
