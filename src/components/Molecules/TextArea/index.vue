@@ -45,41 +45,11 @@ import Vue from "vue";
 import handleCanvas from "@/mixin/handleCanvas";
 
 export default Vue.extend({
-  name: "SelectForm",
   mixins: [handleCanvas],
   props: {
     msg: String,
   },
-  //methods: {
-  //
-  //},
-  //computed: {
-  //  ...mapGetters({
-  //    getCanvasDom: "editor/getCanvasDom",
-  //    getOptions: "editor/getOptions",
-  //    //getImageIndex: "editor/getOptions['imageIndex']",
-  //    getImages: "editor/getImages",
-  //  }),
-  //},
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.textarea-custom {
-}
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style scoped></style>

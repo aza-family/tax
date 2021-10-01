@@ -54,7 +54,7 @@ export default Vue.extend({
     items: [],
   },
   mounted() {
-    console.log("!!!!!!!!!labelList: ", this.labelList);
+    //console.log("!!!!!!!!!labelList: ", this.labelList);
     if (this.type === "imageIndex") {
       (this as any).updateCanvas();
     }
@@ -62,13 +62,13 @@ export default Vue.extend({
 
   data() {
     return {
-      labelList: [
-        { fontFamily: "폰트 종류" },
-        { fontSize: "폰트 사이즈" },
-        { fontColor: "폰트 색상" },
-        { fontWeight: "폰트 두께" },
-        { textBorder: "폰트 테두리" },
-      ],
+      //labelList: [
+      //  { fontFamily: "폰트 종류" },
+      //  { fontSize: "폰트 사이즈" },
+      //  { fontColor: "폰트 색상" },
+      //  { fontWeight: "폰트 두께" },
+      //  { textBorder: "폰트 테두리" },
+      //],
     };
   },
 });

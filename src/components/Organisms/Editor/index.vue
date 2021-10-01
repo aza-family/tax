@@ -4,20 +4,20 @@
     <text-area />
     <div class="editor-text">
       <select-form
-        label="폰트 종류"
+        label="Font Family"
         type="fontFamily"
         :items="fontFamilyList"
       />
-      <select-form label="폰트 사이즈" type="fontSize" :items="fontSizeList" />
+      <select-form label="Font Size" type="fontSize" :items="fontSizeList" />
       <!-- <select-form label="폰트 색상" type="fontColor" :items="fontSizeList" /> -->
-      <input-color label="폰트 색상" />
+      <input-color label="Font Color" />
       <select-form
-        label="폰트 두께"
+        label="Font Weight"
         type="fontWeight"
         :items="fontWeightList"
       />
       <select-form
-        label="폰트 테두리"
+        label="Text Border"
         type="textBorder"
         :items="textBorderList"
       />
@@ -54,14 +54,14 @@ export default Vue.extend({
         { name: "45", value: "45" },
       ],
       fontWeightList: [
-        { name: "얆게", value: "lighter" },
-        { name: "보통", value: "normal" },
-        { name: "두껍게", value: "bolder" },
+        { name: "Lghter", value: "lighter" },
+        { name: "Normal", value: "normal" },
+        { name: "Bolder", value: "bolder" },
       ],
       textBorderList: [
-        { name: "없음", value: "transparent" },
-        { name: "검정색", value: "black" },
-        { name: "흰색", value: "white" },
+        { name: "Transparent", value: "transparent" },
+        { name: "Black", value: "black" },
+        { name: "White", value: "white" },
       ],
     };
   },
