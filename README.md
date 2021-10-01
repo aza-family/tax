@@ -1,34 +1,16 @@
-# squid-game
+# Meme Generator(squid-game)
 
-## Project setup
+![image](https://user-images.githubusercontent.com/4640346/135572942-10f6d73e-7463-487e-9745-f9ba2adce529.png)
+
+[demo](https://squid-game.github.io/memegen/)
+
+
+
+## How to install
+
 ```
+git clone https://github.com/squid-game/memegen
+cd memegen
 yarn install
-```
-
-### Compiles and hot-reloads for development
-```
 yarn serve
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
