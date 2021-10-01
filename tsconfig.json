@@ -5,6 +5,7 @@
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
+    "noImplicitAny": false,
     "moduleResolution": "node",
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,7 +19,11 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "@ca": ["src/components/Atoms/*"],
+      "@cm": ["src/components/Molecules/*"],
+      "@co": ["src/components/Organisms/*"],
+      "@ct": ["src/components/Templates/*"]
     },
     "lib": [
       "esnext",
@@ -33,7 +38,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.tsx",
+    "tests/**/*.tsx", "src/images.js",
   ],
   "exclude": [
     "node_modules"

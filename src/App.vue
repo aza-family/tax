@@ -1,32 +1,49 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="meme bg-blueGray-50">
+      <header-wrapper />
+      <editor class="meme-editor" />
+      <preview-image class="meme-preview-image" />
     </div>
-    <router-view />
   </div>
 </template>
+<script lang="ts">
+import HeaderWrapper from "@co/HeaderWrapper/index.vue";
+import Editor from "@co/Editor/index.vue";
+import PreviewImage from "@co/PreviewImage/index.vue";
+//import MyFooter from "@co/MyFooter/index.vue";
+import Vue from "vue";
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+//import images from "@/utils/images";
+//import { cloneDeep } from "lodash";
+export default Vue.extend({
+  components: {
+    HeaderWrapper,
+    Editor,
+    PreviewImage,
+    //MyFooter,
+  },
+});
+</script>
+
+<style lang="scss">
+@import "./assets/tailwind.css";
+@import "@/style/variable.scss";
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
+
+html,
+body {
+  background-color: $white-rgb !important;
 }
 
-#nav {
-  padding: 30px;
+.meme {
+  margin: 20px auto 50px;
+  max-width: 990px;
+  //max-width: 1200px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.meme-preview-image {
+  //width: 70%;
+  margin-top: 1rem;
 }
 </style>

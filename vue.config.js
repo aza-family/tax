@@ -13,6 +13,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
+        "~": path.resolve(__dirname, "src/"),
         "@": path.resolve(__dirname, "./src"),
         "@ca": path.resolve(__dirname, ca),
         "@cm": path.resolve(__dirname, cm),
