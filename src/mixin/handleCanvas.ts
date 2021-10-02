@@ -18,6 +18,11 @@ export default Vue.extend({
     }),
   },
   methods: {
+    onClick(type, num) {
+      this.getOptions[type] = num;
+      this.$store.commit(SET_OPTIONS, this.getOptions);
+      this.updateCanvas();
+    },
     onChanged(type, e) {
       this.getOptions[type] = e.target.value;
       this.$store.commit(SET_OPTIONS, this.getOptions);

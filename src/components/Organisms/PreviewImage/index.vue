@@ -9,11 +9,14 @@
     <canvas
       id="canvas"
       ref="canvas"
-      :width="1000"
-      :height="450"
+      :width="1200"
+      :height="550"
       class="rounded-lg shadow-lg"
     >
     </canvas>
+    <div class="mt-6">
+      <pagination />
+    </div>
     <div class="mt-6">
       <button
         @click="downloadCanvas"
@@ -44,7 +47,11 @@ import { mapGetters } from "vuex";
 //import { SET_CANVAS_DOM } from "@/store/Editor/mutations";
 import Vue from "vue";
 import images from "@/utils/images";
+import Pagination from "@/components/Molecules/Pagination/index.vue";
 export default Vue.extend({
+  components: {
+    Pagination,
+  },
   methods: {
     downloadCanvas() {
       const url = (this as any).$refs.canvas.toDataURL("image/png");
@@ -68,7 +75,7 @@ export default Vue.extend({
       return images;
     },
     ...mapGetters({
-      getCanvasDom: "editor/getCanvasDom",
+      //getCanvasDom: "editor/getCanvasDom",
       getOptions: "editor/getOptions",
     }),
   },

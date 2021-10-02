@@ -5,6 +5,7 @@
       <editor class="meme-editor" />
       <preview-image class="meme-preview-image" />
     </div>
+    <!-- <my-footer /> -->
   </div>
 </template>
 <script lang="ts">
@@ -38,8 +39,8 @@ body {
 
 .meme {
   margin: 20px auto 50px;
-  max-width: 990px;
-  //max-width: 1200px;
+  //max-width: 990px;
+  max-width: 1200px;
 }
 
 .meme-preview-image {

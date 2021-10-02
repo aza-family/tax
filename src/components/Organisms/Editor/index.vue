@@ -79,4 +79,10 @@ export default Vue.extend({
   flex-wrap: nowrap;
   justify-content: space-around;
 }
+
+@media screen and (max-width: 525px) {
+  .editor-text {
+    flex-wrap: wrap;
+  }
+}
 </style>

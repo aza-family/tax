@@ -53,13 +53,6 @@ export default Vue.extend({
     type: String,
     items: [],
   },
-  mounted() {
-    //console.log("!!!!!!!!!labelList: ", this.labelList);
-    if (this.type === "imageIndex") {
-      (this as any).updateCanvas();
-    }
-  },
-
   data() {
     return {
       //labelList: [
