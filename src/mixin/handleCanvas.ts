@@ -23,6 +23,16 @@ export default Vue.extend({
       this.$store.commit(SET_OPTIONS, this.getOptions);
       this.updateCanvas();
     },
+    onClickLeft(type) {
+      this.getOptions[type] - 1;
+
+      this.$store.commit(SET_OPTIONS, this.getOptions);
+      this.updateCanvas();
+    },
+    onClickRight() {
+      this.$store.commit(SET_OPTIONS, this.getOptions);
+      this.updateCanvas();
+    },
     onChanged(type, e) {
       this.getOptions[type] = e.target.value;
       this.$store.commit(SET_OPTIONS, this.getOptions);

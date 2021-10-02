@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.6a3452fc31e60074caef6f923ff5f8c6.js"
+  "precache-manifest.b2580c2ec81c8efb836525c38dd8e80a.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "squid-game"});
