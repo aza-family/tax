@@ -1,6 +1,9 @@
+export interface ImageState {
+  images: [];
+}
 export interface EditorState {
   //imageIndex: number;
-  images: [];
+  //images: [];
   options: OptionsState;
   //canvasDom: any;
 }

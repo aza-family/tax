@@ -1,7 +1,7 @@
 import Vue from "vue";
 import { mapGetters } from "vuex";
 import { SET_OPTIONS } from "@/store/Editor/mutations";
-import images from "@/utils/images";
+//import images from "@/utils/images";
 export default Vue.extend({
   data() {
     return {};
@@ -10,15 +10,23 @@ export default Vue.extend({
     getCanvasDom(): any {
       return document.getElementById("canvas");
     },
-    getImages() {
-      return images;
-    },
+    //getImages() {
+    //  return images;
+    //},
     ...mapGetters({
+      getImagesLength: "image/getImagesLength",
+      getImages: "image/getImages",
       getOptions: "editor/getOptions",
     }),
   },
   methods: {
     onClick(type, num) {
+      console.log("onClick num:", num);
+      if (num < 0) {
+        return;
+      } else if (num >= this.getImagesLength) {
+        return;
+      }
       this.getOptions[type] = num;
       this.$store.commit(SET_OPTIONS, this.getOptions);
       this.updateCanvas();

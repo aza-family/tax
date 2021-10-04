@@ -4,7 +4,7 @@ import getters from "@/store/Editor/getters";
 import mutations from "@/store/Editor/mutations";
 
 const state: EditorState = {
-  images: [],
+  //images: [],
   options: {
     imageIndex: 0,
     fontFamily: "Nanum Gothic",
