@@ -4,15 +4,15 @@
       <header-wrapper />
       <editor class="meme-editor" />
       <preview-image class="meme-preview-image" />
+      <my-footer />
     </div>
-    <!-- <my-footer /> -->
   </div>
 </template>
 <script lang="ts">
 import HeaderWrapper from "@co/HeaderWrapper/index.vue";
 import Editor from "@co/Editor/index.vue";
 import PreviewImage from "@co/PreviewImage/index.vue";
-//import MyFooter from "@co/MyFooter/index.vue";
+import MyFooter from "@co/MyFooter/index.vue";
 import Vue from "vue";
 
 //import images from "@/utils/images";
@@ -22,7 +22,7 @@ export default Vue.extend({
     HeaderWrapper,
     Editor,
     PreviewImage,
-    //MyFooter,
+    MyFooter,
   },
 });
 </script>
