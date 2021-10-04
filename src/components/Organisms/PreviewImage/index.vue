@@ -62,6 +62,7 @@ export default Vue.extend({
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      this.$ga.event("downloadCanvas", "click");
     },
   },
 

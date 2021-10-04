@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d111499370d8d4b883a0",
-    "url": "css/app.a1903419.css"
+    "revision": "5ba1721d8967b19244f0",
+    "url": "css/app.e6a67b6d.css"
   },
   {
     "revision": "f08afef54475e1dcccee193928c62293",
@@ -116,12 +116,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/screencapture-netflix-watch-81262750-2021-10-01-22_49_47.cb55ebbd.png"
   },
   {
-    "revision": "f6d526dd865f2204a0c82cb8732d0371",
+    "revision": "bdf42a5ae695507fda608433217d700a",
     "url": "index.html"
   },
   {
-    "revision": "d111499370d8d4b883a0",
-    "url": "js/app.3cde6777.js"
+    "revision": "5ba1721d8967b19244f0",
+    "url": "js/app.5739d598.js"
   },
   {
     "revision": "8c4e5c539c0d6008a3b1",
