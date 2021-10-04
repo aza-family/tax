@@ -7,8 +7,15 @@ import store from "./store";
 //---------------------------------
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 Vue.use(require("vue-script2"));
-import Ads from "vue-google-adsense";
-Vue.use(Ads.Adsense);
+//import Ads from "vue-google-adsense";
+//Vue.use(Ads.Adsense);
+
+import VueAnalytics from "vue-analytics";
+
+// Configuration VueAnalytics
+Vue.use(VueAnalytics, {
+  id: "G-GCBPGG58H9",
+});
 
 //import "@/assets/tailwind.css"; //追加
 //import "./index.css";
