@@ -9,7 +9,6 @@
         :items="fontFamilyList"
       />
       <select-form label="Font Size" type="fontSize" :items="fontSizeList" />
-      <!-- <select-form label="폰트 색상" type="fontColor" :items="fontSizeList" /> -->
       <input-color label="Font Color" />
       <select-form
         label="Font Weight"

@@ -21,12 +21,7 @@
         ease-in-out
         transform
         rounded-lg
-        bg-gray-100
-        focus:border-blueGray-500
-        focus:bg-white
-        focus:outline-none
-        focus:shadow-outline
-        focus:ring-2
+        focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2
         ring-offset-current ring-offset-2
       "
     >
@@ -68,19 +63,15 @@ export default Vue.extend({
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style scoped lang="scss">
+select,
+option,
+option:focus,
+select:focus {
+  border: none !important;
+  border-radius: 2pt !important;
+  //box-shadow: 0 0 0 1pt grey;
+  outline: none !important;
+  transition: 0.1s !important;
 }
 </style>

@@ -10,7 +10,7 @@
       id="canvas"
       ref="canvas"
       :width="1200"
-      :height="550"
+      :height="505"
       class="rounded-lg shadow-lg"
     >
     </canvas>
@@ -44,9 +44,7 @@
 
 <script lang="ts">
 import { mapGetters } from "vuex";
-//import { SET_CANVAS_DOM } from "@/store/Editor/mutations";
 import Vue from "vue";
-import images from "@/utils/images";
 import Pagination from "@/components/Molecules/Pagination/index.vue";
 export default Vue.extend({
   components: {
@@ -66,16 +64,10 @@ export default Vue.extend({
       document.body.removeChild(link);
     },
   },
-  mounted() {
-    //console.log("@@@@@@@@@@@ this.$refs.canvas:", this.$refs.canvas);
-    //this.$store.commit(SET_CANVAS_DOM, this.$refs.canvas);
-  },
+
   computed: {
-    getImages() {
-      return images;
-    },
     ...mapGetters({
-      //getCanvasDom: "editor/getCanvasDom",
+      getImages: "image/getImages",
       getOptions: "editor/getOptions",
     }),
   },
@@ -89,5 +81,6 @@ export default Vue.extend({
 
 #canvas {
   max-width: 100% !important;
+  max-height: 505px;
 }
 </style>
