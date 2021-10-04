@@ -1,8 +1,9 @@
 <template>
-  <div class="flex items-center justify-center space-x-1">
+  <div class="flex items-center justify-center space-x-1 flex-wrap">
     <button
       @click="onClick('imageIndex', imageIndexBack)"
       class="
+        outline-none
         hover:bg-pink-500
         flex
         items-center
@@ -73,19 +74,7 @@
 import Vue from "vue";
 //import { mapGetters } from "vuex";
 import handleCanvas from "@/mixin/handleCanvas";
-import images from "@/utils/images";
 import { mapGetters } from "vuex";
-//import zero from "../../../assets/0.png";
-
-//import one from "@/assets/1.png";
-//import two from "@/assets/2.png";
-//import there from "@/assets/3.png";
-//import four from "@/assets/4.png";
-//import five from "@/assets/5.png";
-//import six from "@/assets/6.png";
-//import seven from "@/assets/7.png";
-//import eight from "@/assets/8.png";
-//import nine from "@/assets/9.png";
 
 export default Vue.extend({
   mixins: [handleCanvas],
@@ -101,9 +90,6 @@ export default Vue.extend({
     },
   },
   computed: {
-    getImages() {
-      return images;
-    },
     imageIndexBack() {
       return (this as any).getImageIndex - 1;
     },
@@ -124,8 +110,19 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 @import "@/style/variable.scss";
+
 .selected {
+  background-color: $pink-color;
   /* border: 1.5px solid $pink-color !important; */
-  outline: 1.5px solid $pink-color;
+  //outline: 1.5px solid $pink-color;
+}
+
+button,
+button:focus {
+  border: none;
+  border-radius: 2pt;
+  //box-shadow: 0 0 0 1pt grey;
+  outline: none;
+  transition: 0.1s;
 }
 </style>
