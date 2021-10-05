@@ -24,9 +24,6 @@ export default Vue.extend({
     PreviewImage,
     MyFooter,
   },
-  mounted() {
-    this.$ga.page("/");
-  },
 });
 </script>
 

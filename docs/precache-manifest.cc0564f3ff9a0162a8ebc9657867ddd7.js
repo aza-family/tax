@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5ba1721d8967b19244f0",
-    "url": "css/app.e6a67b6d.css"
+    "revision": "facfec2b8b34811ac95e",
+    "url": "css/app.a1903419.css"
   },
   {
     "revision": "f08afef54475e1dcccee193928c62293",
@@ -116,16 +116,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/screencapture-netflix-watch-81262750-2021-10-01-22_49_47.cb55ebbd.png"
   },
   {
-    "revision": "bdf42a5ae695507fda608433217d700a",
+    "revision": "d8831f5911a16d33a06e3407d6256d85",
     "url": "index.html"
   },
   {
-    "revision": "5ba1721d8967b19244f0",
-    "url": "js/app.5739d598.js"
+    "revision": "facfec2b8b34811ac95e",
+    "url": "js/app.f1b87ed9.js"
   },
   {
-    "revision": "8c4e5c539c0d6008a3b1",
-    "url": "js/chunk-vendors.38a705e0.js"
+    "revision": "a69b204146b06a1fd35f",
+    "url": "js/chunk-vendors.719741d6.js"
   },
   {
     "revision": "dda4e267368c0939f87072f348a12bfc",
