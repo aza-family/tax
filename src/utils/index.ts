@@ -98,3 +98,16 @@ export const getPerCapitaRate = (
 
   return a + b;
 };
+
+//法人税割
+export const getCorporateTaxDiscount = (
+  numberOfEmployees: number,
+  capital: number
+): number => {
+  //資本金等の額1,000万円以下 && 従業員数50人以下
+
+  const a = 2; //都道府県税相当
+  const b = 5; //市町村税相当
+
+  return a + b;
+};
