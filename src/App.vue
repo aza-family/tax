@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <div class="meme bg-blueGray-50">
-      <header-wrapper />
-      <editor class="meme-editor" />
-      <preview-image class="meme-preview-image" />
+      <!-- <header-wrapper /> -->
+      <input-form class="meme-editor" />
+      <output-table />
+      <!-- <preview-image class="meme-preview-image" /> -->
       <my-footer />
     </div>
   </div>
 </template>
 <script lang="ts">
-import HeaderWrapper from "@co/HeaderWrapper/index.vue";
-import Editor from "@co/Editor/index.vue";
-import PreviewImage from "@co/PreviewImage/index.vue";
+//import HeaderWrapper from "@co/HeaderWrapper/index.vue";
+import InputForm from "@co/InputForm/index.vue";
+import OutputTable from "@co/OutputTable/index.vue";
+//import PreviewImage from "@co/PreviewImage/index.vue";
 import MyFooter from "@co/MyFooter/index.vue";
 import Vue from "vue";
 
@@ -19,9 +21,10 @@ import Vue from "vue";
 //import { cloneDeep } from "lodash";
 export default Vue.extend({
   components: {
-    HeaderWrapper,
-    Editor,
-    PreviewImage,
+    //HeaderWrapper,
+    InputForm,
+    OutputTable,
+    //PreviewImage,
     MyFooter,
   },
 });

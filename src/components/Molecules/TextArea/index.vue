@@ -38,10 +38,10 @@
 <script lang="ts">
 import Vue from "vue";
 //import { mapGetters } from "vuex";
-import handleCanvas from "@/mixin/handleCanvas";
+import handle from "@/mixin/handle";
 
 export default Vue.extend({
-  mixins: [handleCanvas],
+  mixins: [handle],
   props: {
     msg: String,
   },

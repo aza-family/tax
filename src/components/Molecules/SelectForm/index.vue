@@ -40,9 +40,9 @@
 import Vue from "vue";
 //import { SET_OPTIONS } from "@/store/Editor/mutations";
 //import { updateCanvas } from "@/utils/handleCanvas";
-import handleCanvas from "@/mixin/handleCanvas";
+import handle from "@/mixin/handle";
 export default Vue.extend({
-  mixins: [handleCanvas],
+  mixins: [handle],
   props: {
     label: String,
     type: String,
