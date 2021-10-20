@@ -18,7 +18,7 @@
         <div class="rounded-t bg-white mb-0 px-6 py-6">
           <div class="text-center flex justify-between">
             <h6 class="text-blueGray-700 text-xl font-bold">
-              フリーランス（デザイン・エンジニア)向けの税金比較表
+              フリーランスエンジニア向けの税金比較表(万円単位)
             </h6>
             <button
               class="
@@ -42,7 +42,7 @@
               "
               type="button"
             >
-              Search
+              Settings
             </button>
           </div>
         </div>

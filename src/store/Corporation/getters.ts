@@ -36,17 +36,25 @@ export const GET_CORPORATE_BUSINESS_TAX = `corporation/${GET_CORPORATE_BUSINESS_
 export const GET_RESIDENCE_TAX3 = "getResidenceTax";
 export const GET_RESIDENCE_TAX_V3 = `corporation/${GET_RESIDENCE_TAX3}`;
 
+//所得税
 export const GET_INCOME_TAX3 = "getIncomeTax";
 export const GET_INCOME_TAX_V3 = `corporation/${GET_INCOME_TAX3}`;
 
 export const GET_SUM_TAX3 = "getSumTax";
 export const GET_SUM_TAX_V3 = `corporation/${GET_SUM_TAX3}`;
 
+//社会保険料
+export const GET_SOCIAL_INSURANCE_PREMIUM2 = "getSocialInsurancePremium";
+export const GET_SOCIAL_INSURANCE_PREMIUM_V3 = `corporation/${GET_SOCIAL_INSURANCE_PREMIUM2}`;
+
 import {
   getCorporateTax,
+  getCorporateBusinessTax,
+  getCorporateResidenceTax,
   getResidenceTax,
   getEarnedIncomeTaxCredit,
   getIncomeTax,
+  getSocialInsurancePremiumForSalaryMan,
 } from "@/utils";
 const getters: GetterTree<CorporationState, RootState> = {
   [GET_REVENUE2](state) {
@@ -65,7 +73,14 @@ const getters: GetterTree<CorporationState, RootState> = {
     return state.flag;
   },
   [GET_CORPORATE_TAXES_ETC2](state) {
-    return getCorporateTax(state.profit) / 10000;
+    //console.log("GET_CORPORATE_TAXES_ETC2", state.profit);
+    const corporateTax = getCorporateTax(state.profit); //法人税
+    //console.log("corporateTax:", corporateTax);
+    const corporateBusinessTax = getCorporateBusinessTax(state.profit); //法人事業税
+    //console.log("corporateBusinessTax:", corporateBusinessTax);
+    const corporateResidenceTax = getCorporateResidenceTax(state.profit);
+    //console.log("corporateResidenceTax:", corporateResidenceTax);
+    return corporateTax + corporateBusinessTax + corporateResidenceTax;
   },
   [GET_DIRECTORS_COMPENSATION2](state) {
     return state.directorsCompensation;
@@ -81,16 +96,21 @@ const getters: GetterTree<CorporationState, RootState> = {
   [GET_INCOME_TAX3](state) {
     //控除額を引いた額
     const deduction = getEarnedIncomeTaxCredit(state.directorsCompensation);
+    //console.log("GET_INCOME_TAX3 deduction", deduction);
     const earnings = state.directorsCompensation - deduction;
     //console.log("earnings:", earnings);
-    return getIncomeTax(earnings) / 10000;
+    return getIncomeTax(earnings);
   },
   [GET_SUM_TAX3](state, getters) {
     return (
       getters[GET_RESIDENCE_TAX3] +
       getters[GET_INCOME_TAX3] +
-      getters[GET_CORPORATE_TAXES_ETC2]
+      getters[GET_CORPORATE_TAXES_ETC2] +
+      getters[GET_SOCIAL_INSURANCE_PREMIUM2] * 2
     );
+  },
+  [GET_SOCIAL_INSURANCE_PREMIUM2](state) {
+    return getSocialInsurancePremiumForSalaryMan(state.directorsCompensation);
   },
 };
 

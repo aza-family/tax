@@ -13,13 +13,27 @@ export const GET_DEDUCTION = `individualBusiness/${GET_DEDUCTION2}`;
 export const GET_PROFIT2 = "getProfit";
 export const GET_PROFIT = `individualBusiness/${GET_PROFIT2}`;
 
+//所得税
 export const GET_INCOME_TAX2 = "getIncomeTax";
 export const GET_INCOME_TAX_V2 = `individualBusiness/${GET_INCOME_TAX2}`;
 
+//住民税
 export const GET_RESIDENCE_TAX2 = "getResidenceTax";
 export const GET_RESIDENCE_TAX_V2 = `individualBusiness/${GET_RESIDENCE_TAX2}`;
 
-import { getIncomeTax, getResidenceTax } from "@/utils";
+export const GET_SUM_TAX2 = "getSumTax";
+export const GET_SUM_TAX_V2 = `individualBusiness/${GET_SUM_TAX2}`;
+
+//社会保険料
+export const GET_SOCIAL_INSURANCE_PREMIUM2 =
+  "getSocialInsurancePremiumForSalaryMan";
+export const GET_SOCIAL_INSURANCE_PREMIUM_V2 = `individualBusiness/${GET_SOCIAL_INSURANCE_PREMIUM2}`;
+
+import {
+  getIncomeTax,
+  getResidenceTax,
+  getSocialInsurancePremiumForIndividualBusiness,
+} from "@/utils";
 
 const getters: GetterTree<IndividualBusinessState, RootState> = {
   [GET_REVENUE2](state) {
@@ -35,13 +49,24 @@ const getters: GetterTree<IndividualBusinessState, RootState> = {
     return state.profit;
   },
   [GET_INCOME_TAX2](state) {
-    return getIncomeTax(state.profit) / 10000;
+    return getIncomeTax(state.profit);
   },
   [GET_RESIDENCE_TAX2](state) {
     return getResidenceTax(state.profit);
   },
   getFlag: (state) => {
     return state.flag;
+  },
+  [GET_SOCIAL_INSURANCE_PREMIUM2](state) {
+    return getSocialInsurancePremiumForIndividualBusiness(state.profit);
+  },
+
+  [GET_SUM_TAX2](state, getters) {
+    return (
+      getters[GET_RESIDENCE_TAX2] +
+      getters[GET_INCOME_TAX2] +
+      getters[GET_SOCIAL_INSURANCE_PREMIUM2]
+    );
   },
 };
 

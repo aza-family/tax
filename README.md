@@ -1,31 +1,17 @@
-# Meme Generator(squid-game)
+# Tax
 
-![image](https://user-images.githubusercontent.com/4640346/135870237-10eb39b9-46cb-4aa1-a30f-a9f7f3825993.png)
+エンジニア向けで会社員と個人事業主そして法人になった場合の税金比較をしてくれます。
+## Demo
 
-This is a meme generator for squid-game.
-
-You can see the [demo here](https://squid-game.github.io/memegen/)
-
-This project was made with reference to [voxmedia/meme](https://github.com/voxmedia/meme) and [kwakcheolyong](https://github.com/wormwlrm/kwakcheolyong).
-
-Please let me know(create issue) if there are any bugs or issue.
-
-
-
-
-
-
-
-
-
+https://aza-family.github.io/tax/
 
 
 
 ## How to install
 
 ```
-git clone https://github.com/squid-game/memegen
-cd memegen
+git clone https://github.com/aza-family/tax
+cd tax
 yarn install
 yarn serve
 ```

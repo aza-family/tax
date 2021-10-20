@@ -41,7 +41,7 @@
                   </div>
                   <div>
                     <!-- <p class="font-semibold text-black">Sufyan</p> -->
-                    <p class="text-xs text-gray-600">社会保険料</p>
+                    <p class="font-semibold">社会保険料</p>
                   </div>
                 </div>
               </td>
@@ -49,31 +49,19 @@
                 class="px-4 py-3 text-ms font-semibold border"
                 v-if="getFlag('salaryman')"
               >
-                22
+                {{ getSocialInsurancePremium }}
               </td>
               <td
-                class="px-4 py-3 text-xs border"
+                class="px-4 py-3 text-ms font-semibold border"
                 v-if="getFlag('individualBusiness')"
               >
-                <span
-                  class="
-                    px-2
-                    py-1
-                    font-semibold
-                    leading-tight
-                    text-green-700
-                    bg-green-100
-                    rounded-sm
-                  "
-                >
-                  Acceptable
-                </span>
+                {{ getSocialInsurancePremiumV2 }}
               </td>
               <td
-                class="px-4 py-3 text-sm border"
+                class="px-4 py-3 text-ms font-semibold border"
                 v-if="getFlag('corporation')"
               >
-                6/4/2000
+                {{ getSocialInsurancePremiumV3 }}
               </td>
             </tr>
             <tr class="text-gray-700">
@@ -93,7 +81,7 @@
                   </div>
                   <div>
                     <!-- <p class="font-semibold text-black">Stevens</p> -->
-                    <p class="text-xs text-gray-600">所得税</p>
+                    <p class="font-semibold">所得税</p>
                   </div>
                 </div>
               </td>
@@ -125,7 +113,7 @@
                 </span>
               </td> -->
               <td
-                class="px-4 py-3 text-sm border"
+                class="px-4 py-3 text-md font-semibold border"
                 v-if="getFlag('corporation')"
               >
                 {{ getIncomeTaxV3 }}
@@ -148,7 +136,7 @@
                   </div>
                   <div>
                     <!-- <p class="font-semibold">Nora</p>-->
-                    <p class="text-xs text-gray-600">住民税</p>
+                    <p class="font-semibold">住民税</p>
                   </div>
                 </div>
               </td>
@@ -171,7 +159,7 @@
                 {{ getResidenceTaxV3 }}
               </td>
             </tr>
-            <tr class="text-gray-700">
+            <tr class="text-gray-700" v-if="getFlag('individualBusiness')">
               <td class="px-4 py-3 border">
                 <div class="flex items-center text-sm">
                   <div class="relative w-8 h-8 mr-3 rounded-full">
@@ -211,7 +199,7 @@
                 0
               </td>
             </tr>
-            <tr class="text-gray-700">
+            <tr class="text-gray-700" v-if="getFlag('corporation')">
               <td class="px-4 py-3 border">
                 <div class="flex items-center text-sm">
                   <div class="relative w-8 h-8 mr-3 rounded-full">
@@ -248,11 +236,11 @@
                 class="px-4 py-3 border text-md font-semibold"
                 v-if="getFlag('corporation')"
               >
-                0
+                {{ getSocialInsurancePremiumV3 }}
               </td>
             </tr>
 
-            <tr class="text-gray-700">
+            <tr class="text-gray-700" v-if="getFlag('corporation')">
               <td class="px-4 py-3 border">
                 <div class="flex items-center text-sm">
                   <div class="relative w-8 h-8 mr-3 rounded-full">
@@ -329,7 +317,7 @@
                     rounded-sm
                   "
                 >
-                  0
+                  {{ getSumTax }}万円
                 </span>
               </td>
               <td
@@ -347,7 +335,7 @@
                     rounded-sm
                   "
                 >
-                  0
+                  {{ getSumTaxV2 }}万円
                 </span>
               </td>
               <td
@@ -365,7 +353,7 @@
                     rounded-sm
                   "
                 >
-                  {{ getSumTaxV3 }}
+                  {{ getSumTaxV3 }}万円
                 </span>
               </td>
             </tr>
@@ -378,16 +366,24 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { GET_INCOME_TAX, GET_RESIDENCE_TAX } from "@/store/Salaryman/getters";
+import {
+  GET_INCOME_TAX,
+  GET_RESIDENCE_TAX,
+  GET_SOCIAL_INSURANCE_PREMIUM,
+  GET_SUM_TAX,
+} from "@/store/Salaryman/getters";
 import {
   GET_INCOME_TAX_V2,
   GET_RESIDENCE_TAX_V2,
+  GET_SOCIAL_INSURANCE_PREMIUM_V2,
+  GET_SUM_TAX_V2,
 } from "@/store/IndividualBusiness/getters";
 import {
   GET_CORPORATE_TAXES_ETC,
   GET_RESIDENCE_TAX_V3,
   GET_INCOME_TAX_V3,
   GET_SUM_TAX_V3,
+  GET_SOCIAL_INSURANCE_PREMIUM_V3,
 } from "@/store/Corporation/getters";
 import { mapGetters } from "vuex";
 //import TextArea from "@cm/TextArea/index.vue";
@@ -408,7 +404,12 @@ export default Vue.extend({
       getResidenceTaxV3: GET_RESIDENCE_TAX_V3,
       getIncomeTaxV3: GET_INCOME_TAX_V3,
       getCorporateTaxesEtc: GET_CORPORATE_TAXES_ETC,
+      getSumTax: GET_SUM_TAX,
+      getSumTaxV2: GET_SUM_TAX_V2,
       getSumTaxV3: GET_SUM_TAX_V3,
+      getSocialInsurancePremium: GET_SOCIAL_INSURANCE_PREMIUM,
+      getSocialInsurancePremiumV2: GET_SOCIAL_INSURANCE_PREMIUM_V2,
+      getSocialInsurancePremiumV3: GET_SOCIAL_INSURANCE_PREMIUM_V3,
     }),
   },
   methods: {
