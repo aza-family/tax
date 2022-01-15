@@ -12,7 +12,10 @@
           >
             年収(売上)万円
           </label>
+          <!--<input-number v-model="getCommonRevenue" :set="setCommonRevenue" /> -->
+
           <input
+            @input="onChangedForAction(actionCommonRevenue, $event)"
             type="number"
             class="
               border-0
@@ -85,6 +88,9 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { ACTION_COMMON_REVENUE } from "@/store/Common/actions";
+import { GET_COMMON_REVENUE } from "@/store/Common/getters";
+
 import InputNumber from "@ca/InputNumber/index.vue";
 import InputCheckBoxWithLabel from "@ca/InputCheckBoxWithLabel/index.vue";
 //import {
@@ -102,6 +108,7 @@ import InputCheckBoxWithLabel from "@ca/InputCheckBoxWithLabel/index.vue";
 //} from "@/store/Corporation/mutations";
 //import { GET_FLAG } from "@/store/Salaryman/getters";
 import handle from "@/mixin/handle";
+import { mapGetters } from "vuex";
 export default Vue.extend({
   components: {
     InputCheckBoxWithLabel,
@@ -120,8 +127,17 @@ export default Vue.extend({
   //  //getDeduction: GET_DEDUCTION,
   //  //getProfit: GET_PROFIT,
   //}),
-  methods: {},
+  methods: {
+    //...mapActions(ACTION_COMMON_REVENUE, ["update"]),
+    //actionCommonRevenue() {
+    //  //this.update(this.getCommonRevenue);
+    //  //this.payload.id = null
+    //},
+  },
   computed: {
+    actionCommonRevenue() {
+      return ACTION_COMMON_REVENUE;
+    },
     salarymanFlag: {
       get() {
         return (this as any).$store.getters["salaryman/getFlag"];
@@ -131,6 +147,9 @@ export default Vue.extend({
         //this.value = value;
       },
     },
+    ...mapGetters({
+      getCommonRevenue: GET_COMMON_REVENUE,
+    }),
     //getSalaryManFlag() {
     //
     //  return (this as any).$store.getters["salaryman/getFlag"];

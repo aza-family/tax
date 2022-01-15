@@ -1,4 +1,8 @@
 //経営者の給料も同様
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CommonState {
+  commonRevenue: number;
+}
 export interface SalarymanState {
   flag: boolean;
   yearlyIncome: number; //年収

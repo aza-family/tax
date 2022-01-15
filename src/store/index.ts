@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import { common } from "@/store/Common";
 import { individualBusiness } from "@/store/IndividualBusiness";
 import { salaryman } from "@/store/Salaryman";
 import { corporation } from "@/store/Corporation";
@@ -11,5 +12,5 @@ export default new Vuex.Store({
   state: {
     version: "1.0.0",
   },
-  modules: { individualBusiness, salaryman, corporation },
+  modules: { common, individualBusiness, salaryman, corporation },
 });

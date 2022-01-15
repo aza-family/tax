@@ -10,5 +10,8 @@ export default Vue.extend({
       //console.log("onChanged", e);
       this.$store.commit(type, e.target.value);
     },
+    onChangedForAction(type, e) {
+      this.$store.dispatch(type, e.target.value);
+    },
   },
 });
