@@ -53,10 +53,10 @@ import MinusText from "@ca/MinusText/index.vue";
 import EqualText from "@ca/EqualText/index.vue";
 
 import {
-  GET_REVENUE,
-  GET_EXPENSE,
-  GET_DIRECTORS_COMPENSATION,
-  GET_PROFIT,
+  GET_COR_REVENUE,
+  GET_COR_EXPENSE,
+  GET_COR_DIRECTORS_COMPENSATION,
+  GET_COR_PROFIT,
 } from "@/store/Corporation/getters";
 
 import {
@@ -88,10 +88,10 @@ export default Vue.extend({
       return SET_PROFIT;
     },
     ...mapGetters({
-      getRevenue: GET_REVENUE,
-      getExpense: GET_EXPENSE,
-      getDirectorsCompensation: GET_DIRECTORS_COMPENSATION,
-      getProfit: GET_PROFIT,
+      getRevenue: GET_COR_REVENUE,
+      getExpense: GET_COR_EXPENSE,
+      getDirectorsCompensation: GET_COR_DIRECTORS_COMPENSATION,
+      getProfit: GET_COR_PROFIT,
     }),
   },
   props: {

@@ -55,9 +55,9 @@ import {
   SET_EARNED_INCOME,
 } from "@/store/Salaryman/mutations";
 import {
-  GET_YEARLY_INCOME,
-  GET_DEDUCTION,
-  GET_EARNED_INCOME,
+  GET_SAL_YEARLY_INCOME,
+  GET_SAL_DEDUCTION,
+  GET_SAL_EARNED_INCOME,
 } from "@/store/Salaryman/getters";
 export default Vue.extend({
   //mixins: [handleCanvas],
@@ -69,9 +69,9 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters({
-      getYearlyIncome: GET_YEARLY_INCOME,
-      getDeduction: GET_DEDUCTION,
-      getEarnedIncome: GET_EARNED_INCOME,
+      getYearlyIncome: GET_SAL_YEARLY_INCOME,
+      getDeduction: GET_SAL_DEDUCTION,
+      getEarnedIncome: GET_SAL_EARNED_INCOME,
     }),
     setYearlyIncome() {
       return SET_YEARLY_INCOME;

@@ -54,10 +54,10 @@ import MinusText from "@ca/MinusText/index.vue";
 import EqualText from "@ca/EqualText/index.vue";
 import { mapGetters } from "vuex";
 import {
-  GET_REVENUE,
-  GET_EXPENSE,
-  GET_DEDUCTION,
-  GET_PROFIT,
+  GET_FRE_REVENUE,
+  GET_FRE_EXPENSE,
+  GET_FRE_DEDUCTION,
+  GET_FRE_PROFIT,
 } from "@/store/IndividualBusiness/getters";
 
 import {
@@ -88,10 +88,10 @@ export default Vue.extend({
       return SET_PROFIT;
     },
     ...mapGetters({
-      getRevenue: GET_REVENUE,
-      getExpense: GET_EXPENSE,
-      getDeduction: GET_DEDUCTION,
-      getProfit: GET_PROFIT,
+      getRevenue: GET_FRE_REVENUE,
+      getExpense: GET_FRE_EXPENSE,
+      getDeduction: GET_FRE_DEDUCTION,
+      getProfit: GET_FRE_PROFIT,
     }),
   },
   methods: {

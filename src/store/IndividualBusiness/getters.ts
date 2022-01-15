@@ -2,32 +2,32 @@ import { GetterTree } from "vuex";
 import { IndividualBusinessState, RootState } from "@/store/types";
 
 export const GET_REVENUE2 = "getRevenue";
-export const GET_REVENUE = `individualBusiness/${GET_REVENUE2}`;
+export const GET_FRE_REVENUE = `individualBusiness/${GET_REVENUE2}`;
 
 export const GET_EXPENSE2 = "getExpense";
-export const GET_EXPENSE = `individualBusiness/${GET_EXPENSE2}`;
+export const GET_FRE_EXPENSE = `individualBusiness/${GET_EXPENSE2}`;
 
 export const GET_DEDUCTION2 = "getDeduction";
-export const GET_DEDUCTION = `individualBusiness/${GET_DEDUCTION2}`;
+export const GET_FRE_DEDUCTION = `individualBusiness/${GET_DEDUCTION2}`;
 
 export const GET_PROFIT2 = "getProfit";
-export const GET_PROFIT = `individualBusiness/${GET_PROFIT2}`;
+export const GET_FRE_PROFIT = `individualBusiness/${GET_PROFIT2}`;
 
 //所得税
 export const GET_INCOME_TAX2 = "getIncomeTax";
-export const GET_INCOME_TAX_V2 = `individualBusiness/${GET_INCOME_TAX2}`;
+export const GET_FRE_INCOME_TAX = `individualBusiness/${GET_INCOME_TAX2}`;
 
 //住民税
 export const GET_RESIDENCE_TAX2 = "getResidenceTax";
-export const GET_RESIDENCE_TAX_V2 = `individualBusiness/${GET_RESIDENCE_TAX2}`;
+export const GET_FRE_RESIDENCE_TAX = `individualBusiness/${GET_RESIDENCE_TAX2}`;
 
 export const GET_SUM_TAX2 = "getSumTax";
-export const GET_SUM_TAX_V2 = `individualBusiness/${GET_SUM_TAX2}`;
+export const GET_FRE_SUM_TAX = `individualBusiness/${GET_SUM_TAX2}`;
 
 //社会保険料
 export const GET_SOCIAL_INSURANCE_PREMIUM2 =
   "getSocialInsurancePremiumForSalaryMan";
-export const GET_SOCIAL_INSURANCE_PREMIUM_V2 = `individualBusiness/${GET_SOCIAL_INSURANCE_PREMIUM2}`;
+export const GET_FRE_SOCIAL_INSURANCE_PREMIUM = `individualBusiness/${GET_SOCIAL_INSURANCE_PREMIUM2}`;
 
 import {
   getIncomeTax,

@@ -1,28 +1,28 @@
 import { GetterTree } from "vuex";
 import { SalarymanState, RootState } from "@/store/types";
 export const GET_YEARLY_INCOME1 = "getYearlyIncome";
-export const GET_YEARLY_INCOME = `salaryman/${GET_YEARLY_INCOME1}`;
+export const GET_SAL_YEARLY_INCOME = `salaryman/${GET_YEARLY_INCOME1}`;
 
 export const GET_DEDUCTION1 = "getDeduction";
-export const GET_DEDUCTION = `salaryman/${GET_DEDUCTION1}`;
+export const GET_SAL_DEDUCTION = `salaryman/${GET_DEDUCTION1}`;
 
 export const GET_EARNED_INCOME1 = "getEarnedIncome";
-export const GET_EARNED_INCOME = `salaryman/${GET_EARNED_INCOME1}`;
+export const GET_SAL_EARNED_INCOME = `salaryman/${GET_EARNED_INCOME1}`;
 
 export const GET_INCOME_TAX1 = "getIncomeTax";
-export const GET_INCOME_TAX = `salaryman/${GET_INCOME_TAX1}`;
+export const GET_SAL_INCOME_TAX = `salaryman/${GET_INCOME_TAX1}`;
 
 //住民税
 export const GET_RESIDENCE_TAX1 = "getResidenceTax";
-export const GET_RESIDENCE_TAX = `salaryman/${GET_RESIDENCE_TAX1}`;
+export const GET_SAL_RESIDENCE_TAX = `salaryman/${GET_RESIDENCE_TAX1}`;
 
 //社会保険料
 export const GET_SOCIAL_INSURANCE_PREMIUM1 =
   "getSocialInsurancePremiumForSalaryMan";
-export const GET_SOCIAL_INSURANCE_PREMIUM = `salaryman/${GET_SOCIAL_INSURANCE_PREMIUM1}`;
+export const GET_SAL_SOCIAL_INSURANCE_PREMIUM = `salaryman/${GET_SOCIAL_INSURANCE_PREMIUM1}`;
 
 export const GET_SUM_TAX1 = "getSumTax";
-export const GET_SUM_TAX = `salaryman/${GET_SUM_TAX1}`;
+export const GET_SAL_SUM_TAX = `salaryman/${GET_SUM_TAX1}`;
 
 import {
   getIncomeTax,

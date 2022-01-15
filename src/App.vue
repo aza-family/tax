@@ -12,6 +12,7 @@
 <script lang="ts">
 //import HeaderWrapper from "@co/HeaderWrapper/index.vue";
 import InputForm from "@co/InputForm/index.vue";
+//import OutputTable from "@co/OutputTable/index.vue";
 import OutputTable from "@co/OutputTable/index.vue";
 //import PreviewImage from "@co/PreviewImage/index.vue";
 import MyFooter from "@co/MyFooter/index.vue";
