@@ -1,14 +1,30 @@
 <template>
   <table class="w-full">
     <row-title-list :flags="getAllFlags" />
+    <!-- <row-sub-title :flags="getAllFlags" /> -->
     <tbody class="bg-white">
       <template v-for="(item, key) in items">
         <tr :key="key" class="text-gray-700">
           <col-title :title="item.title" :imgUrl="item.imgUrl" />
-          <col-item :res="getTaxes.fre[item.type]" v-if="getAllFlags.fre" />
-          <col-item :res="getTaxes.cor[item.type]" v-if="getAllFlags.cor" />
-          <col-item :res="getTaxes.sal[item.type]" v-if="getAllFlags.sal" />
-          <col-sum-item :res="getTaxes.sum[item.type]" v-if="getAllFlags.sum" />
+          <col-item
+            :res="getTaxes.fre[item.type]"
+            :type="item.type"
+            v-if="getAllFlags.fre"
+          />
+          <template v-if="getAllFlags.cor">
+            <col-item :res="getTaxes.cor[item.type]" :type="item.type" />
+            <col-item :res="getTaxes.cor[item.type]" :type="item.type" />
+          </template>
+          <template v-if="getAllFlags.mic">
+            <col-item :res="getTaxes.mic[item.type]" :type="item.type" />
+            <col-item :res="getTaxes.mic[item.type]" :type="item.type" />
+          </template>
+
+          <col-item
+            :res="getTaxes.sal[item.type]"
+            :type="item.type"
+            v-if="getAllFlags.sal"
+          />
         </tr>
       </template>
     </tbody>
@@ -23,7 +39,7 @@ import { mapGetters } from "vuex";
 import rowTitleList from "./rowTitleList.vue";
 import colTitle from "./colTitle.vue";
 import colItem from "./colItem.vue";
-import colSumItem from "./colSumItem.vue";
+import rowSubTitle from "./rowSubTitle.vue";
 //import TextArea from "@cm/TextArea/index.vue";
 //import SelectForm from "@cm/SelectForm/index.vue";
 //import InputColor from "@cm/InputColor/index.vue";
@@ -32,7 +48,8 @@ export default Vue.extend({
     rowTitleList,
     colTitle,
     colItem,
-    colSumItem,
+    //rowSubTitle,
+    //colSumItem,
     //TextArea,
     //SelectForm,
     //InputColor,
