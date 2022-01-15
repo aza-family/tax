@@ -153,6 +153,9 @@ export const getPerCapitaRate = (
 
 //https://www.kaonavi.jp/dictionary/hyojunhosyugetsugaku/
 //会社員用の社会保険料算出(4,5,6給料平均の15% + 会社もこの15%分を負担)
+//正確にこっちが正しい
+//https://www.kyoukaikenpo.or.jp/~/media/Files/shared/hokenryouritu/r3/ippan/r30213tokyo.pdf
+
 export const getSocialInsurancePremiumForSalaryMan = (
   yearlyIncome: number
 ): number => {
@@ -166,7 +169,6 @@ export const getSocialInsurancePremiumForSalaryMan = (
 //「医療分」＝６３万円
 //「後期高齢者支援金分」＝１９万円
 //「介護分」＝１７万円
-
 export const getSocialInsurancePremiumForIndividualBusiness = (
   earnings: number
 ): number => {
