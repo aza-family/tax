@@ -163,8 +163,16 @@ export const getSocialInsurancePremiumForSalaryMan = (
 };
 
 //個人事業主用の社会保険料算出(大体課税所得の10%)
+//「医療分」＝６３万円
+//「後期高齢者支援金分」＝１９万円
+//「介護分」＝１７万円
+
 export const getSocialInsurancePremiumForIndividualBusiness = (
   earnings: number
 ): number => {
-  return earnings * 0.1;
+  //40歳未満の上限額は63+19=82
+  const res = earnings * 0.1;
+  return res >= 82 ? 82 : earnings * 0.1;
+
+  //return earnings * 0.1;
 };
