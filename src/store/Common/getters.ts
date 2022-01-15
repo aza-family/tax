@@ -44,7 +44,8 @@ const getters: GetterTree<CommonState, RootState> = {
       fre: rootGetters["individualBusiness/getFlag"],
       cor: rootGetters["corporation/getFlag"],
       sal: rootGetters["salaryman/getFlag"],
-      mic: false,
+      mic: true,
+      //mic: rootGetters["micro/getFlag"],
     };
   },
   [GET_TAXES2](state, getters, rootState, rootGetters) {
@@ -73,7 +74,13 @@ const getters: GetterTree<CommonState, RootState> = {
         residenceTax: rootGetters[GET_SAL_RESIDENCE_TAX],
         sum: rootGetters[GET_SAL_SUM_TAX],
       },
-      //mic: false,
+      mic: {
+        incomeTax: rootGetters[GET_SAL_INCOME_TAX],
+        socialInsurancePremium: rootGetters[GET_SAL_SOCIAL_INSURANCE_PREMIUM],
+        corporateTaxesEtc: 0,
+        residenceTax: rootGetters[GET_SAL_RESIDENCE_TAX],
+        sum: rootGetters[GET_SAL_SUM_TAX],
+      },
     };
   },
   //taxList() {
