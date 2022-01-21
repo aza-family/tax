@@ -18,3 +18,29 @@ yarn serve
 
 ## Customization
 
+## Document
+
+コード上、簡単な記述のため、以下のアリアスを使ってます。
+
+|  Alias  |  意味  |
+| ---- | ---- |
+|  COR  |  法人成り  |
+|  FRE  |  フリーランス(個人事業主)  |
+|  MIC  |  マイクロ法人  |
+|  SAL  |  会社員  |
+
+
+
+##
+
+法人税
+
+https://calculator.jp/money/corporate/
+
+
+
+---------
+
+簡単シミュレーション
+
+https://sumoviva.jp/judge
