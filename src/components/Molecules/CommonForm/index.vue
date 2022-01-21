@@ -37,8 +37,42 @@
           />
         </div>
 
+        <!---------------------------- -->
+
+        <div class="relative w-full mb-3">
+          <label
+            class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+            htmlfor="grid-password"
+          >
+            経費
+          </label>
+          <!--<input-number v-model="getCommonRevenue" :set="setCommonRevenue" /> -->
+
+          <input
+            @input="onChangedForAction(actionCommonExpense, $event)"
+            type="number"
+            class="
+              border-0
+              px-3
+              py-3
+              placeholder-blueGray-300
+              text-blueGray-600
+              bg-white
+              rounded
+              text-sm
+              shadow
+              focus:outline-none focus:ring
+              w-full
+              ease-linear
+              transition-all
+              duration-150
+            "
+            value="lucky.jesse"
+          />
+        </div>
+
         <div class="flex flex-row justify-around">
-          <input-check-box-with-label model="salaryman" label="会社員" />
+          <!-- <input-check-box-with-label model="salaryman" label="会社員" /> -->
           <!-- <label class="inline-flex items-center mt-3">
             <input
               v-model="salarymanFlag"
@@ -52,34 +86,12 @@
             model="individualBusiness"
             label="個人事業主"
           />
-          <!--<label class="inline-flex items-center mt-3">
-            <input
-              type="checkbox"
-              class="form-checkbox h-5 w-5 text-red-600"
-              checked
-            /><span class="ml-2 text-gray-700">個人事業主</span>
-          </label>-->
-
-          <!-- <label class="inline-flex items-center mt-3">
-            <input
-              type="checkbox"
-              class="form-checkbox h-5 w-5 text-orange-600"
-              checked
-            /><span class="ml-2 text-gray-700">法人</span>
-          </label>-->
           <input-check-box-with-label model="corporation" label="法人" />
 
-          <!--<input-check-box-with-label
-            model="corporation"
+          <input-check-box-with-label
+            model="microCorporation"
             label="マイクロ法人"
-          />-->
-          <!-- <label class="inline-flex items-center mt-3">
-            <input
-              type="checkbox"
-              class="form-checkbox h-5 w-5 text-yellow-600"
-              checked
-            /><span class="ml-2 text-gray-700">マイクロ法人</span>
-          </label>-->
+          />
         </div>
       </div>
     </div>
@@ -88,10 +100,17 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { ACTION_COMMON_REVENUE } from "@/store/Common/actions";
-import { GET_COMMON_REVENUE } from "@/store/Common/getters";
+import {
+  ACTION_COMMON_REVENUE,
+  ACTION_COMMON_EXPENSE,
+} from "@/store/Common/actions";
+import {
+  GET_COMMON_REVENUE,
+  GET_COMMON_EXPENSE,
+  GET_ALL_FLAGS,
+} from "@/store/Common/getters";
 
-import InputNumber from "@ca/InputNumber/index.vue";
+//import InputNumber from "@ca/InputNumber/index.vue";
 import InputCheckBoxWithLabel from "@ca/InputCheckBoxWithLabel/index.vue";
 //import {
 //  GET_REVENUE,
@@ -135,8 +154,13 @@ export default Vue.extend({
     //},
   },
   computed: {
+    //getLabel() {},
+    //getModelName() {},
     actionCommonRevenue() {
       return ACTION_COMMON_REVENUE;
+    },
+    actionCommonExpense() {
+      return ACTION_COMMON_EXPENSE;
     },
     salarymanFlag: {
       get() {
@@ -149,6 +173,8 @@ export default Vue.extend({
     },
     ...mapGetters({
       getCommonRevenue: GET_COMMON_REVENUE,
+      getCommonExpense: GET_COMMON_EXPENSE,
+      getAllFlags: GET_ALL_FLAGS,
     }),
     //getSalaryManFlag() {
     //

@@ -51,4 +51,12 @@ body {
   //width: 70%;
   margin-top: 1rem;
 }
+
+.w_per__input_custom {
+  width: 14%;
+}
+
+.w_per__label_custom {
+  width: 5%;
+}
 </style>

@@ -6,6 +6,7 @@ import actions from "./actions";
 
 const state: CommonState = {
   commonRevenue: 1000, //売上
+  commonExpense: 200, //経費
 };
 
 export const common: Module<CommonState, RootState> = {

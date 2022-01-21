@@ -62,9 +62,7 @@
           <corporation-form v-if="getFlag('corporation')" />
           <!----マイクロ法人---------------------------------->
 
-          <!-- <micro-corporation-form />
-
-          <hr class="mt-6 border-b-1 border-blueGray-300" /> -->
+          <micro-corporation-form v-if="getFlag('microCorporation')" />
         </div>
       </div>
       <!-- <footer class="relative pt-8 pb-6 mt-2">
@@ -109,14 +107,14 @@ import CommonForm from "@cm/CommonForm/index.vue";
 import SalarymanForm from "@cm/SalarymanForm/index.vue";
 import IndividualBusinessForm from "@cm/IndividualBusinessForm/index.vue";
 import CorporationForm from "@cm/CorporationForm/index.vue";
-//import MicroCorporationForm from "@cm/MicroCorporationForm/index.vue";
+import MicroCorporationForm from "@cm/MicroCorporationForm/index.vue";
 export default Vue.extend({
   components: {
     IndividualBusinessForm,
     SalarymanForm,
     CommonForm,
     CorporationForm,
-    //MicroCorporationForm,
+    MicroCorporationForm,
     //TextArea,
     //SelectForm,
     //InputColor,

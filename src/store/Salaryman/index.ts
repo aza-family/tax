@@ -4,7 +4,7 @@ import getters from "./getters";
 import mutations from "./mutations";
 
 const state: SalarymanState = {
-  flag: true,
+  flag: false,
   yearlyIncome: 1000, //年収
   deduction: 195, //控除
   earnedIncome: 805, //給与の所得

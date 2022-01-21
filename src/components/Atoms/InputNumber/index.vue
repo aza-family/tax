@@ -54,4 +54,13 @@ export default Vue.extend({
 .disabled-style {
   background-color: #d2d0d0;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 </style>

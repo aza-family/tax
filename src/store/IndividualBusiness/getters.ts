@@ -24,6 +24,9 @@ export const GET_FRE_RESIDENCE_TAX = `individualBusiness/${GET_RESIDENCE_TAX2}`;
 export const GET_SUM_TAX2 = "getSumTax";
 export const GET_FRE_SUM_TAX = `individualBusiness/${GET_SUM_TAX2}`;
 
+export const GET_PENSION2 = "getPension";
+export const GET_FRE_PENSION = `individualBusiness/${GET_PENSION2}`;
+
 //社会保険料
 export const GET_SOCIAL_INSURANCE_PREMIUM2 =
   "getSocialInsurancePremiumForSalaryMan";
@@ -31,6 +34,8 @@ export const GET_FRE_SOCIAL_INSURANCE_PREMIUM = `individualBusiness/${GET_SOCIAL
 
 import {
   getIncomeTax,
+  getPension,
+  getReconstructionSpecialTax,
   getResidenceTax,
   getSocialInsurancePremiumForIndividualBusiness,
 } from "@/utils";
@@ -49,7 +54,11 @@ const getters: GetterTree<IndividualBusinessState, RootState> = {
     return state.profit;
   },
   [GET_INCOME_TAX2](state) {
-    return getIncomeTax(state.profit);
+    const profit = getIncomeTax(state.profit);
+    //console.log("@@@@@@@@@@@profit:", profit);
+    const specialTax = getReconstructionSpecialTax(profit);
+    return Number(profit) + specialTax;
+    //return getIncomeTax(state.profit);
   },
   [GET_RESIDENCE_TAX2](state) {
     return getResidenceTax(state.profit);
@@ -60,12 +69,15 @@ const getters: GetterTree<IndividualBusinessState, RootState> = {
   [GET_SOCIAL_INSURANCE_PREMIUM2](state) {
     return getSocialInsurancePremiumForIndividualBusiness(state.profit);
   },
-
+  [GET_PENSION2]() {
+    return getPension();
+  },
   [GET_SUM_TAX2](state, getters) {
     return (
       getters[GET_RESIDENCE_TAX2] +
       getters[GET_INCOME_TAX2] +
-      getters[GET_SOCIAL_INSURANCE_PREMIUM2]
+      getters[GET_SOCIAL_INSURANCE_PREMIUM2] +
+      getters[GET_PENSION2]
     );
   },
 };

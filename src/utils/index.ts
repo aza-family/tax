@@ -1,6 +1,10 @@
 //所得税 - サラリーマンと個人事業主共通
+
+import { getSyakaiHoken } from "./syakaihoken";
+
 //https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2260.htm
 export const getIncomeTax = (earning: number): number => {
+  console.log("getIncomeTax earning:", earning);
   const e = earning * 10000;
   let result;
   if (e > 0 && e <= 1950000) {
@@ -16,13 +20,18 @@ export const getIncomeTax = (earning: number): number => {
   } else if (e > 18000000 && e < 40000000) {
     result = e * 0.4 - 2796000;
   } else if (e >= 40000000) {
-    result = e * 45 - 4796000;
+    result = e * 0.45 - 4796000;
   } else {
     return 0;
   }
   return result / 10000;
 };
 
+//復興特別所得税
+export const getReconstructionSpecialTax = (income: number): number => {
+  const tmp = income / 100;
+  return tmp * 2.1;
+};
 //給与所得控除(会社員)
 //https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1410.htm
 //1,625,000円まで 	550,000円
@@ -80,20 +89,66 @@ export const getBasicDeduction = (earning: number): number => {
   }
 };
 
+//給与所得控除額
+//https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1410.htm
+//https://www.freee.co.jp/kb/kb-payroll/the-deduction-for-employment-income/#content3
+//https://www.youtube.com/watch?v=MQHnGApgt_4
+export const getSalaryIncomeDeduction = (yearlyIncome: number): number => {
+  console.log("@@@@@@!!yearlyIncome", yearlyIncome);
+  const y = yearlyIncome * 10000;
+  let result;
+  if (y <= 550000) {
+    result = y;
+  } else if (y > 550000 && y <= 1625000) {
+    result = 550000;
+  } else if (y > 1625000 && y <= 1800000) {
+    result = (y / 100) * 40 - 100000;
+  } else if (y > 1800000 && y <= 3600000) {
+    result = (y / 100) * 30 + 80000;
+  } else if (y > 3600000 && y <= 6600000) {
+    result = (y / 100) * 20 + 440000;
+  } else if (y > 6600000 && y <= 8500000) {
+    result = (y / 100) * 10 + 1100000;
+  } else {
+    //8,500,000超え
+    result = 1950000;
+  }
+  console.log("!!!!!!!!!!!!!!!!!! result:", result);
+  return result / 10000;
+};
+
 //法人税(800万円まで 15%, 800万円超えたら 23.2%)
 //均等割り7万円を追加すべき？ 利益0でも7万円かかる
 //法人税額＝課税所得×法人税率－控除額
 //赤字の場合の扱い  -> 支払い義務なし
 export const getCorporateTax = (earning: number): number => {
   const e = earning * 10000;
-  if (earning > 0 && earning <= 800) {
-    return (e * 0.15) / 10000;
-  } else if (earning > 800) {
-    return (e * 0.23) / 10000;
+  console.log("========= earning:", earning);
+  let res;
+  if (earning > 0 && earning < 800) {
+    res = (e * 0.15) / 10000;
+    //return (e * 0.15) / 10000;
+  } else if (earning >= 800) {
+    const eTmp: number = e - 8000000;
+
+    //return (8000000 * 0.15 + eTmp * 0.23) / 10000;
+    res = (8000000 * 0.15 + eTmp * 0.23) / 10000;
+
+    //(e * 0.23) / 10000
   } else {
-    //赤字の場合支払い義務なしに従って
-    return 0;
+    res = 7;
   }
+  return res;
+  //return 0;
+
+  //if (earning > 0 && earning <= 800) {
+  //  return (e * 0.15) / 10000;
+  //} else if (earning > 800) {
+  //  return (e * 0.23) / 10000;
+  //} else {
+  //  //赤字の場合支払い義務なしに従って
+  //  return 0;
+  //}
 };
 
 //課税所得400万円以下の部分：3.5％
@@ -102,6 +157,12 @@ export const getCorporateTax = (earning: number): number => {
 //https://www.tax.metro.tokyo.lg.jp/kazei/houjinji.html#ho_02_02
 //https://www.smbc-card.com/hojin/magazine/bizi-dora/tax/enterprise-corporate-tax.jsp
 //法人事業税(資本金1億以上 or 年金所得 2500万円以上 or 年収入2億円ではない前提)
+
+//年400万円以下の所得 	3.4%
+//年400万円超〜年800万円以下の所得 	5.1%
+//年800万円超の所得 	6.7%
+//ここだと計算違うな
+// https://www.saisoncard.co.jp/credictionary/bussinesscard/article222.html
 export const getCorporateBusinessTax = (earning: number): number => {
   if (earning > 0 && earning <= 400) {
     return (earning / 100) * 3.5;
@@ -165,10 +226,28 @@ export const getSocialInsurancePremiumForSalaryMan = (
   return Math.round(tmp);
 };
 
+export const getHokenForSalaryMan = (yearlyIncome: number): number => {
+  //本来は4,5,6月を基準にするが、1年平均としてシンプルな構成にした
+  return getSyakaiHoken(yearlyIncome, true);
+};
+
+export const getPensionForSalaryMan = (yearlyIncome: number): number => {
+  //本来は4,5,6月を基準にするが、1年平均としてシンプルな構成にした
+  //const average = yearlyIncome / 12;
+  //const tmp = ((average / 100) * 18.3) / 2;
+  //return Math.round(tmp);
+  return getSyakaiHoken(yearlyIncome, false);
+};
+
 //個人事業主用の社会保険料算出(大体課税所得の10%)
+//上限額
 //「医療分」＝６３万円
 //「後期高齢者支援金分」＝１９万円
 //「介護分」＝１７万円
+//加入者数×38,800円 	加入者全員の年間所得額×7.13% 	63万円
+//2.支援金分 （加入者全員） 加入者数×13,200円 	加入者全員の年間所得額×2.41% 	19万円
+//3.介護分 （40～64歳の加入者） 40～64歳の加入者数×17,000円 40～64歳の加入者の年間所得額×2.37% 17万円
+//https://www.city.koto.lg.jp/250102/fukushi/kokumin/hokenryo/20170201.html
 export const getSocialInsurancePremiumForIndividualBusiness = (
   earnings: number
 ): number => {
@@ -178,3 +257,15 @@ export const getSocialInsurancePremiumForIndividualBusiness = (
 
   //return earnings * 0.1;
 };
+
+export const getPension = (): number => {
+  return getNationalPension();
+};
+
+//16,410 x12 = 196920
+export const getNationalPension = (): number => {
+  //return 1.6410 * 12;
+  return 20;
+};
+
+//export const getWelfarePension = () => {};

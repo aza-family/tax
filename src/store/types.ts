@@ -2,6 +2,7 @@
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CommonState {
   commonRevenue: number;
+  commonExpense: number;
 }
 export interface SalarymanState {
   flag: boolean;
@@ -31,6 +32,7 @@ export interface IndividualBusinessState {
   residenceTax: number; //個人住民税
   enterpriseTax: number; //個人事業税-290万円超の所得を得た個人
   consumptionTax: number; //消費税
+  pension: number;
   //国民年金保険料
   //印紙税
   //復興特別所得税(2.1%)
@@ -70,6 +72,35 @@ export interface CorporationState {
   directorsCompensation: number; //役員報酬
   deduction: number; //控除
   profit: number; //課税所得
+  profitSelf: number;
+  hoken: number;
+  pension: number;
+  //corporateTaxesEtc: number; //法人税等(法人住民税,法人税,法人事業税)
+  //法人税 -> 800万円まで 15%, 800万円超えたら 23.2%
+  //法人事業税
+  //法人住民税
+  //厚生年金保険料
+  //印紙税
+  //印紙税は、領収書や契約書などの文書にかかる税金です。対象文書に収入印紙を貼り付け、割印を押して納付します。
+
+  //源泉所得税
+  //源泉所得税は、役員や社員の給与、税理士、弁護士、司法書士等への報酬に対して課される税金です。
+}
+
+export interface MicroCorporationState {
+  flag: boolean;
+  revenue: number; //売上
+  revenueSelf: number;
+  expense: number; //経費
+  profitSelf: number;
+  expenseSelf: number;
+  directorsCompensation: number; //役員報酬
+  deduction: number; //控除
+  deductionSelf: number;
+  profit: number; //課税所得
+  hoeknForSelf: number; //会社負担保険料
+  hoken: number;
+  pension: number;
   //corporateTaxesEtc: number; //法人税等(法人住民税,法人税,法人事業税)
   //法人税 -> 800万円まで 15%, 800万円超えたら 23.2%
   //法人事業税

@@ -12,11 +12,17 @@
             v-if="getAllFlags.fre"
           />
           <template v-if="getAllFlags.cor">
-            <col-item :res="getTaxes.cor[item.type]" :type="item.type" />
+            <col-item
+              :res="getTaxes.cor[getTypeSelf(item.type)]"
+              :type="item.type"
+            />
             <col-item :res="getTaxes.cor[item.type]" :type="item.type" />
           </template>
           <template v-if="getAllFlags.mic">
-            <col-item :res="getTaxes.mic[item.type]" :type="item.type" />
+            <col-item
+              :res="getTaxes.mic[getTypeSelf(item.type)]"
+              :type="item.type"
+            />
             <col-item :res="getTaxes.mic[item.type]" :type="item.type" />
           </template>
 
@@ -39,7 +45,7 @@ import { mapGetters } from "vuex";
 import rowTitleList from "./rowTitleList.vue";
 import colTitle from "./colTitle.vue";
 import colItem from "./colItem.vue";
-import rowSubTitle from "./rowSubTitle.vue";
+//import rowSubTitle from "./rowSubTitle.vue";
 //import TextArea from "@cm/TextArea/index.vue";
 //import SelectForm from "@cm/SelectForm/index.vue";
 //import InputColor from "@cm/InputColor/index.vue";
@@ -61,6 +67,9 @@ export default Vue.extend({
     }),
   },
   methods: {
+    getTypeSelf(type) {
+      return `${type}Self`;
+    },
     getFlag(model) {
       return (this as any).$store.getters[`${model}/getFlag`];
     },
@@ -77,13 +86,13 @@ export default Vue.extend({
         },
         {
           title: "社会保険料",
-          type: "socialInsurancePremium",
+          type: "hoken",
           imgUrl:
             "https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
         },
         {
           title: "国民年金・厚生年金",
-          type: "xx",
+          type: "pension",
           imgUrl:
             "https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
         },
